@@ -1,0 +1,114 @@
+.header__menu-container
+	display: flex
+	flex-flow: row wrap
+
+.main-header
+	padding-top: 15px
+	padding-bottom: 30px
+
+.logo
+	display: flex
+	flex-flow: row nowrap
+	align-items: center
+	padding-left: 0
+	p
+		color: #fff
+		font-family: $OpenSans-Bold
+		text-transform: uppercase
+		line-height: 1.1em
+		font-size: 13px
+		margin-left: 10px
+		margin-bottom: 0
+
+.header-menu
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+	align-items: center
+	margin-bottom: 0
+	list-style: none
+	li 
+		margin: 10px 20px
+		a
+			display: block
+			padding: 5px 5px
+			color: #fff
+			font-size: 1em
+			position: relative
+			&:before
+				content: ''
+				width: 0
+				height: 1px
+				background-color: #fff	
+				position: absolute
+				bottom: 3px
+				left: 0
+				transition: all .25s ease
+			&:hover
+				text-decoration: none
+				&:before
+					content: ''
+					width: 100%
+
+
+.main-contact
+	display: flex
+	flex-flow: row wrap
+	color: #fff
+	align-items: center
+	justify-content: flex-end
+	padding-right: 0
+
+.main-mail
+	img
+		margin-right: 3px
+	a
+		color: #fff
+		font-size: 1em
+		&:hover
+			text-decoration: none
+
+.main-phone
+	transform: translateY(5px)
+	margin-left: 20px
+	margin-top: 18px
+	display: flex
+	flex-direction: column
+	img
+		margin-right: 3px
+	a
+		color: #fff
+		font-size: 1em
+		&:hover
+			text-decoration: none
+
+a.phone-callback
+	color: $accent
+	position: relative
+	align-self: flex-end
+	overflow: hidden
+	&:before
+		content: ''
+		width: 100%
+		height: 1px
+		background-color: $accent
+		position: absolute
+		bottom: 3px
+		left: 0
+		transition: all .25s ease
+	&:hover
+		text-decoration: none
+		&:before
+			content: ''
+			width: 0
+
+
+.heade-text-content-container
+	margin-top: 40px
+	margin-bottom: 50px
+
+.header
+	&__title
+		margin-bottom: 40px
+	&__description
+		max-width: 600px

@@ -23,23 +23,6 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-// Compress Task
-gulp.task( 'compress' , function() {
-	gulp.src('assets/dest/img/**/*')
-	.pipe(imagemin([
-		imagemin.gifsicle({interlaced: true}),
-		imagemin.jpegtran({progressive: true}),
-		imagemin.optipng({optimizationLevel: 10}),
-		imagemin.svgo({
-			plugins: [
-					{removeViewBox: true},
-					{cleanupIDs: false}
-			]
-		})
-	]))
-	.pipe(gulp.dest('assets/dest/img'))
-});
-
 gulp.task('styles', function() {
 	return gulp.src('assets/'+syntax+'/**/*.'+syntax+'')
 	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
@@ -52,13 +35,8 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-		'assets/libs/blaz/blazy.min.js',
 		'assets/libs/jquery/dist/jquery.min.js',
 		'assets/libs/swiper/dist/js/swiper.min.js',
-		'assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
-		'assets/libs/input-mask/dist/jquery.mask.min.js',
-		'assets/libs/equalHeights/equalHeights.min.js',
-		'assets/libs/fancybox/dist/jquery.fancybox.min.js',
 		'assets/js/common.js', // Always at the ends
 		])
 	.pipe(concat('scripts.min.js'))
@@ -72,20 +50,6 @@ gulp.task('code', function(){
 		.pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('rsync', function() {
-	return gulp.src('assets/**')
-	.pipe(rsync({
-		root: 'assets/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
-		// include: ['*.htaccess'], // Includes files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-		recursive: true,
-		archive: true,
-		silent: false,
-		compress: true
-	}))
-});
 
 if( gulpVersion == 3 ){
 
