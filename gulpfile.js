@@ -69,6 +69,6 @@ if( gulpVersion == 4 ){
 		gulp.watch( ['assets/libs/**/*.js', 'assets/js/common.js'], gulp.parallel('scripts') );
 		gulp.watch( ['*.html', '*.php'], gulp.parallel('code') );
 	});
-	gulp.task( 'default', gulp.parallel('watch', 'styles', 'scripts', 'browser-sync') );
+	gulp.task( 'default', gulp.parallel('watch', 'code', 'styles', 'scripts', 'browser-sync') );
 
 }
